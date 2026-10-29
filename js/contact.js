@@ -2,14 +2,14 @@
 // Invio del form "Contattami" con EmailJS (https://www.emailjs.com)
 // È l'unico JavaScript del sito: il resto è solo HTML e CSS.
 //
-// TODO: sostituire i tre valori con quelli del proprio account EmailJS
-// (Account → Public Key, Email Services → Service ID,
-//  Email Templates → Template ID).
+// Chiavi dell'account EmailJS (Account → Public Key,
+// Email Services → Service ID, Email Templates → Template ID).
+// La Public Key è pensata per stare nel codice pubblico.
 // =========================================================
 
-const EMAILJS_PUBLIC_KEY = "LA-TUA-PUBLIC-KEY";
-const EMAILJS_SERVICE_ID = "IL-TUO-SERVICE-ID";
-const EMAILJS_TEMPLATE_ID = "IL-TUO-TEMPLATE-ID";
+const EMAILJS_PUBLIC_KEY = "nJKF8MDtxZZCPOiQA";
+const EMAILJS_SERVICE_ID = "service_qtt7gmk";
+const EMAILJS_TEMPLATE_ID = "template_jijz22c";
 
 const form = document.querySelector(".contact-form");
 const status = document.querySelector(".form-status");

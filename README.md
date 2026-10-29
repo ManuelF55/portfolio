@@ -66,7 +66,6 @@ La cartella `tools/` contiene il compilatore Dart Sass e non va caricata su GitH
 ## Prima della pubblicazione
 
 - L'indirizzo del sito nei tag Open Graph è `https://manuelf55.github.io/portfolio/`: se chiami il repository in un altro modo, aggiornalo in tutte le pagine.
-- In `js/contact.js` inserisci Public Key, Service ID e Template ID del tuo account [EmailJS](https://www.emailjs.com), così i messaggi del form arrivano alla tua email (istruzioni sotto).
 - Aggiorna il link a Behance con il tuo profilo (LinkedIn è già collegato).
 - Collega i bottoni "Vedi il progetto completo" di Lamon Calling e Forma (ora puntano a `#`).
 - Sostituisci le immagini temporanee in `img/placeholder/` con gli screenshot veri.
