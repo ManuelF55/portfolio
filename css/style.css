@@ -775,6 +775,14 @@ img {
   gap: 24px;
 }
 
+.form-status {
+  margin: 0;
+  font-size: 14px;
+}
+.form-status:empty {
+  display: none;
+}
+
 .consent {
   display: flex;
   gap: 10px;

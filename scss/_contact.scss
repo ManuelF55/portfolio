@@ -93,6 +93,16 @@
   gap: 24px;
 }
 
+// Messaggio dopo l'invio ("Invio in corso…", "Grazie!"...)
+.form-status {
+  margin: 0;
+  font-size: 14px;
+
+  &:empty {
+    display: none;
+  }
+}
+
 .consent {
   display: flex;
   gap: 10px;

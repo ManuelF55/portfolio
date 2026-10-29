@@ -87,10 +87,10 @@
         </dl>
       </div>
 
-      <!-- Form: i messaggi arrivano via email tramite Formspree.
-           TODO: sostituire IL-TUO-ID con il codice del proprio form Formspree. -->
+      <!-- Form: i messaggi vengono inviati via email con EmailJS (js/contact.js).
+           I name dei campi sono le variabili usate nel template di EmailJS. -->
       <div class="col-lg-6 offset-lg-1">
-        <form class="contact-form" action="https://formspree.io/f/IL-TUO-ID" method="POST">
+        <form class="contact-form">
           <div class="row gutter-site">
             <div class="col-sm-6 form-field">
               <label for="nome">Nome *</label>
@@ -116,6 +116,7 @@
             </label>
             <button class="button" type="submit">Invia messaggio ↗</button>
           </div>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
 
@@ -131,5 +132,9 @@
       <p class="copyright">© 2026 Manuel Facen</p>
     </div>
   </footer>
+
+  <!-- Invio del form con EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>
