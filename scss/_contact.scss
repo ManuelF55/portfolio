@@ -1,0 +1,107 @@
+@use "variables" as *;
+
+// =========================================================
+// Contatti: informazioni e form
+// =========================================================
+
+.contact {
+  padding-bottom: 112px;
+}
+
+.contact__title {
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+
+.contact-info {
+  margin: 0;
+  font-size: 13px;
+}
+
+.contact-info__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid $color-border;
+
+  dt {
+    color: $color-text-muted;
+    font-weight: 400;
+  }
+
+  dd {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px 16px;
+    margin: 0;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px 0;
+    border: 0;
+    border-bottom: 1px solid $color-border;
+    background: transparent;
+    color: $color-text;
+    font: inherit;
+    transition: border-color 0.2s ease;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+
+    // il bordo inferiore diventa nero quando si scrive nel campo
+    &:focus {
+      border-bottom-color: $color-text;
+      outline: none;
+    }
+  }
+
+  textarea {
+    min-height: 112px;
+    resize: vertical;
+  }
+}
+
+.contact-form__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.consent {
+  display: flex;
+  gap: 10px;
+  max-width: 34ch;
+  color: $color-text-muted;
+  font-size: 12px;
+
+  input {
+    margin-top: 3px;
+    accent-color: $color-text;
+  }
+}

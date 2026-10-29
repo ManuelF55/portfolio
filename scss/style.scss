@@ -1,0 +1,13 @@
+// =========================================================
+// File principale: unisce tutte le parti del foglio di stile.
+// Si compila in css/style.css (istruzioni nel README).
+// =========================================================
+
+@use "base";
+@use "buttons";
+@use "header";
+@use "home";
+@use "project";
+@use "about";
+@use "contact";
+@use "footer";

@@ -1,0 +1,61 @@
+@use "variables" as *;
+
+// =========================================================
+// Bottoni a pillola e tag
+//   .button            nero pieno: "Scrivimi", "Contattami"...
+//   .button--outline   con contorno: "Scopri il progetto"...
+//   .tag               etichetta dei servizi nella scheda progetto
+// =========================================================
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: $touch-target;
+  padding: 0 20px;
+  border: 1px solid $color-text;
+  border-radius: $radius-pill;
+  background: $color-text;
+  color: $color-white;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $color-button-hover;
+    background: $color-button-hover;
+    color: $color-white;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-text;
+    outline-offset: 3px;
+  }
+}
+
+.button--outline {
+  background: transparent;
+  color: $color-text;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $color-text;
+    background: $color-text;
+  }
+}
+
+.tag {
+  padding: 4px 12px;
+  border: 1px solid $color-border-strong;
+  border-radius: $radius-pill;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

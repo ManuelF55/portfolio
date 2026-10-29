@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contatti — Manuel Facen</title>
+  <meta name="description" content="Hai un progetto in mente o una posizione aperta? Scrivi a Manuel Facen, UX/UI designer.">
+  <meta name="theme-color" content="#f4f2ed">
+
+  <!-- Open Graph: anteprima del link sui social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Manuel Facen">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Contatti — Manuel Facen">
+  <meta property="og:description" content="Hai un progetto in mente o una posizione aperta? Scrivi a Manuel Facen, UX/UI designer.">
+  <meta property="og:url" content="https://manuelf55.github.io/portfolio/contatti.html">
+  <meta property="og:image" content="https://manuelf55.github.io/portfolio/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700&amp;family=Inter:wght@400;500;600&amp;display=swap">
+
+  <!-- Bootstrap, poi il CSS del sito (compilato da scss/style.scss) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+  <header class="site-header">
+    <div class="site-container site-header__inner">
+      <a class="logo" href="index.html">Manuel Facen</a>
+
+      <!-- Menu mobile: la checkbox apre e chiude il menu, senza JavaScript -->
+      <input class="menu-toggle" type="checkbox" id="menu-toggle" aria-label="Apri o chiudi il menu">
+      <label class="burger" for="menu-toggle" aria-hidden="true">
+        <svg class="burger__open" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+        <svg class="burger__close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </label>
+
+      <nav class="main-nav" aria-label="Menu principale">
+        <a href="index.html#progetti" data-label="Progetti">Progetti</a>
+        <a href="about.html" data-label="About">About</a>
+        <a href="contatti.html" data-label="Contatti" aria-current="page">Contatti</a>
+      </nav>
+
+      <a class="button header-cta" href="contatti.html">Scrivimi ↗</a>
+    </div>
+  </header>
+
+  <main id="contenuto" class="site-container">
+    <div class="page-header">
+      <h1 class="title-xl">Contattami</h1>
+    </div>
+
+    <div class="row gutter-site contact">
+
+      <!-- Informazioni -->
+      <div class="col-lg-5">
+        <h2 class="title-md contact__title">Hai un progetto in mente o una posizione aperta? Parliamone :)</h2>
+        <dl class="contact-info">
+          <div class="contact-info__row">
+            <dt>Social</dt>
+            <dd>
+              <a href="https://www.linkedin.com/in/manuel-facen-108201241/" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://www.behance.net/" target="_blank" rel="noopener">Behance</a>
+            </dd>
+          </div>
+          <div class="contact-info__row">
+            <dt>Disponibilità</dt>
+            <dd><span class="status__dot" aria-hidden="true"></span>Aperto a nuovi progetti</dd>
+          </div>
+          <div class="contact-info__row">
+            <dt>Sede</dt>
+            <dd>Provincia di Belluno · da remoto</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Form: i messaggi arrivano via email tramite Formspree.
+           TODO: sostituire IL-TUO-ID con il codice del proprio form Formspree. -->
+      <div class="col-lg-6 offset-lg-1">
+        <form class="contact-form" action="https://formspree.io/f/IL-TUO-ID" method="POST">
+          <div class="row gutter-site">
+            <div class="col-sm-6 form-field">
+              <label for="nome">Nome *</label>
+              <input id="nome" name="nome" type="text" placeholder="Mario Rossi" autocomplete="name" required>
+            </div>
+            <div class="col-sm-6 form-field">
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" placeholder="mario@azienda.it" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="azienda">Azienda (facoltativo)</label>
+            <input id="azienda" name="azienda" type="text" placeholder="Nome dell'azienda" autocomplete="organization">
+          </div>
+          <div class="form-field">
+            <label for="messaggio">Messaggio *</label>
+            <textarea id="messaggio" name="messaggio" placeholder="Raccontami il progetto, gli obiettivi e le tempistiche." required></textarea>
+          </div>
+          <div class="contact-form__footer">
+            <label class="consent">
+              <input type="checkbox" name="privacy" required>
+              <span>Acconsento al trattamento dei miei dati secondo la privacy policy.</span>
+            </label>
+            <button class="button" type="submit">Invia messaggio ↗</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-container site-footer__inner">
+      <ul class="social-links">
+        <li><a href="https://www.linkedin.com/in/manuel-facen-108201241/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.behance.net/" target="_blank" rel="noopener">Behance</a></li>
+      </ul>
+      <p class="copyright">© 2026 Manuel Facen</p>
+    </div>
+  </footer>
+</body>
+</html>

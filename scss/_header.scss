@@ -1,0 +1,152 @@
+@use "variables" as *;
+
+// =========================================================
+// Header sticky e menu
+// Su mobile il menu si apre senza JavaScript: una checkbox
+// nascosta (#menu-toggle) cambia stato quando si tocca il
+// burger, che è la sua <label>.
+// =========================================================
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: $color-bg-header;
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 16px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: $header-height;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.main-nav {
+  display: flex;
+  gap: 40px;
+
+  a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:focus-visible {
+      outline: 2px solid $color-text;
+      outline-offset: 4px;
+    }
+  }
+
+  // pagina corrente
+  [aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+// Al passaggio del mouse la voce diventa in grassetto.
+// Il ::after invisibile occupa già lo spazio del grassetto,
+// così le voci vicine non si spostano.
+@include desktop {
+  .main-nav a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    &::after {
+      content: attr(data-label);
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+      font-weight: 600;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $color-text;
+      font-weight: 600;
+    }
+  }
+}
+
+// ---------- Menu mobile ----------
+
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+}
+
+.burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: $touch-target;
+  height: $touch-target;
+  margin-right: -10px;
+  cursor: pointer;
+}
+
+.burger__close {
+  display: none;
+}
+
+.menu-toggle:focus-visible + .burger {
+  border-radius: 8px;
+  outline: 2px solid $color-text;
+}
+
+@include mobile {
+  .main-nav,
+  .site-header .header-cta {
+    display: none;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+
+  // menu aperto
+  .menu-toggle:checked {
+    & ~ .main-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      padding: 8px 0 16px;
+
+      a {
+        font-family: $font-heading;
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-transform: none;
+      }
+    }
+
+    & ~ .header-cta {
+      display: inline-flex;
+      margin-bottom: 20px;
+    }
+
+    & + .burger .burger__open {
+      display: none;
+    }
+
+    & + .burger .burger__close {
+      display: block;
+    }
+  }
+}

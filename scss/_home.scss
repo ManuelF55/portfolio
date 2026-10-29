@@ -1,0 +1,213 @@
+@use "sass:map";
+@use "variables" as *;
+
+// =========================================================
+// Home: hero, introduzione ai progetti e card dei progetti
+// =========================================================
+
+// ---------- Hero ----------
+
+.hero {
+  position: relative;
+  min-height: 900px;
+  margin-top: -$header-height; // la hero passa sotto l'header semitrasparente
+  overflow: hidden;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 900px;
+  padding-top: $header-height;
+}
+
+.hero__text {
+  max-width: 640px;
+}
+
+.hero__lead {
+  max-width: 44ch;
+  margin: 28px 0 36px;
+  color: $color-text-secondary;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+// Immagine a destra, con sfumatura verso il beige sul lato sinistro
+.hero__media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, $color-bg 0%, rgba($color-bg, 0) 30%);
+  }
+}
+
+// Badge "Disponibile per nuovi progetti"
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 32px;
+  padding: 6px 14px;
+  border: 1px solid rgba($color-text, 0.35);
+  border-radius: $radius-pill;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.status__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-available;
+}
+
+@include mobile {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .hero__content {
+    min-height: 0;
+    padding-top: calc(40px - min(5.4vw, 25.5px));
+    padding-bottom: 48px;
+  }
+
+  // su mobile l'immagine va sopra il testo
+  .hero__media {
+    position: relative;
+    order: -1;
+    width: 72%;
+    max-width: 340px;
+    height: auto;
+    margin: calc(104px - min(10.8vw, 51px)) auto 0;
+    aspect-ratio: 4 / 5;
+
+    img {
+      object-fit: contain;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .status {
+    gap: 6px;
+    margin-bottom: 20px;
+    padding: 4px 10px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .status__dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+// ---------- Progetti ----------
+
+// "Progetti realizzati": occupa quasi tutto lo schermo
+.work-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 836px;
+  margin-bottom: 64px;
+  text-align: center;
+
+  .eyebrow {
+    padding-top: 40px;
+  }
+
+  @include mobile {
+    min-height: calc(100svh - #{$header-height});
+  }
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 144px;
+  padding-bottom: 128px;
+}
+
+.project-card__name {
+  margin: 3px 0;
+}
+
+.project-card__description {
+  max-width: 42ch;
+  margin: 16px 0 20px;
+  color: $color-text-muted;
+  font-size: 14px;
+}
+
+.project-card__credits {
+  margin: 0 0 28px;
+  color: $color-text-muted;
+  font-size: 13px;
+
+  strong {
+    color: $color-text;
+    font-weight: 600;
+  }
+}
+
+// Riquadro 4:3 con lo screenshot che esce dal bordo
+.project-card__media {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  aspect-ratio: 4 / 3;
+  border-radius: $radius-card;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+}
+
+.project-card__screen {
+  position: absolute;
+  top: 14%;
+  left: 12%;
+  width: 110%;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  overflow: hidden;
+  background: $color-image-placeholder;
+  box-shadow: $shadow-screen;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Colore di sfondo di ogni progetto (definito in _variables.scss)
+@each $name, $project in $projects {
+  .project-card--#{$name} .project-card__media {
+    background: map.get($project, tint);
+  }
+}

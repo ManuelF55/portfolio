@@ -1,0 +1,84 @@
+@use "variables" as *;
+
+// =========================================================
+// About: presentazione e CV
+// =========================================================
+
+.page-header {
+  padding: 112px 0 56px;
+}
+
+.about-intro {
+  margin: 0;
+  padding-bottom: 80px;
+  color: $color-text-muted;
+}
+
+.cv-section {
+  padding: 40px 0;
+  border-top: 1px solid $color-border;
+}
+
+.cv-section__title {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 32px;
+  padding: 32px 0;
+  border-top: 1px solid $color-border;
+
+  &:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.cv-item__date {
+  flex: 0 0 144px;
+  font-size: 14px;
+}
+
+.cv-item__body {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.cv-item__text {
+  margin: 10px 0 0;
+  color: $color-text-muted;
+  font-size: 14px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: 5px 15px;
+    border: 1px solid $color-text;
+    border-radius: $radius-pill;
+    font-size: 13px;
+  }
+}

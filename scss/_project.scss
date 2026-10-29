@@ -1,0 +1,195 @@
+@use "sass:map";
+@use "variables" as *;
+
+// =========================================================
+// Pagine progetto
+// =========================================================
+
+// ---------- Titolo ----------
+
+.project-header {
+  padding: 88px 0 56px;
+
+  @include mobile {
+    padding-top: 48px;
+  }
+}
+
+.back-link {
+  display: inline-flex;
+  margin-bottom: 24px;
+  color: $color-text-muted;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+// Il titolo è grande 265px; se a quella misura non sta su una riga,
+// si riduce quanto basta per riempire la larghezza del contenuto.
+.project-title {
+  margin: 0;
+  font-family: $font-heading;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+}
+
+@each $name, $project in $projects {
+  .project-title--#{$name} {
+    font-size: min(265px, calc((min(100vw, #{$content-max}) - #{2 * $gutter}) / #{map.get($project, ratio)}));
+  }
+}
+
+// ---------- Introduzione e scheda ----------
+
+.project-intro {
+  padding-bottom: 64px;
+
+  .lead-text {
+    max-width: 52ch;
+  }
+}
+
+.project-meta {
+  margin: 0;
+  border-bottom: 1px solid $color-border;
+}
+
+.project-meta__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid $color-border;
+
+  dt {
+    flex: 0 0 96px;
+    color: $color-text-muted;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  dd {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+// ---------- Sezioni: La sfida, Il processo, Il risultato ----------
+
+.project-section {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding-top: 128px;
+
+  .lead-text {
+    max-width: 62ch;
+  }
+
+  .button {
+    margin-top: 28px;
+  }
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+// ---------- Immagini ----------
+// Sempre nelle proporzioni originali: width e height nell'HTML
+// riservano lo spazio, l'immagine non viene mai deformata.
+
+.project-image {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+
+  img {
+    width: 100%;
+    border-radius: $radius-image;
+    background: $color-image-placeholder;
+    box-shadow: $shadow-card;
+  }
+}
+
+.project-image--bordered img {
+  border: 1px solid $color-image-border;
+}
+
+// Etichette "Prima" e "Dopo"
+.project-image__label {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  padding: 4px 12px;
+  border-radius: $radius-pill;
+  background: rgba($color-text, 0.72);
+  color: $color-white;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+// Due immagini affiancate alla stessa altezza.
+// Ogni immagine si allarga in proporzione al suo rapporto
+// larghezza/altezza, indicato nell'HTML con --ratio.
+.image-pair {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+
+  .project-image {
+    flex: calc(var(--ratio)) 1 0;
+  }
+
+  @include mobile {
+    flex-direction: column;
+
+    .project-image {
+      flex: none;
+      width: 100%;
+    }
+  }
+}
+
+// ---------- Progetto precedente / successivo ----------
+
+.project-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px 24px;
+  margin-top: 160px;
+  padding: 48px 0 120px;
+  border-top: 1px solid $color-border;
+
+  a {
+    text-decoration: none;
+  }
+
+  span {
+    display: block;
+  }
+
+  .lead-text {
+    margin-top: 8px;
+    color: $color-text-muted;
+  }
+}
+
+.project-nav__next {
+  margin-left: auto;
+  text-align: right;
+}

@@ -1,0 +1,62 @@
+// =========================================================
+// Variabili del design system: colori, font, spazi, raggi.
+// Cambiando un valore qui si aggiorna tutto il sito.
+// =========================================================
+
+// Colori
+$color-bg: #f4f2ed;
+$color-bg-header: rgba(244, 242, 237, 0.9);
+$color-text: #111111;
+$color-text-secondary: #4a4741;
+$color-text-muted: #6f6c66;
+$color-white: #ffffff;
+$color-button-hover: #3d3b37;
+$color-border: #dcd8cf;
+$color-border-strong: #c9c4ba;
+$color-image-border: #e3dfd6;
+$color-image-placeholder: #d9d9d9;
+$color-available: #2fbf71;
+
+// Font
+$font-heading: "Epilogue", system-ui, sans-serif;
+$font-body: "Inter", system-ui, sans-serif;
+
+// Spazi e misure
+$gutter: 24px;           // margine laterale della pagina
+$content-max: 1320px;    // larghezza massima del contenuto
+$header-height: 64px;
+$touch-target: 44px;     // altezza minima di bottoni e link toccabili
+
+// Raggi
+$radius-image: 16px;
+$radius-card: 20px;
+$radius-pill: 999px;
+
+// Ombre
+$shadow-card: 0 1px 2px rgba(17, 17, 17, 0.04), 0 18px 40px -24px rgba(17, 17, 17, 0.18);
+$shadow-screen: 0 2px 4px rgba(0, 0, 0, 0.06), 0 40px 80px -40px rgba(0, 0, 0, 0.35);
+
+// Progetti:
+// tint  = colore di sfondo della card in Home (scelto per ogni progetto)
+// ratio = larghezza del titolo diviso la dimensione del font,
+//         serve a far stare il titolo su una riga (vedi _project.scss)
+$projects: (
+  "ecodream": (tint: #e6ece0, ratio: 4.8),
+  "lamon-calling": (tint: #e4dbcd, ratio: 6.5),
+  "forma": (tint: #dcdcd8, ratio: 3),
+);
+
+// Breakpoint: sotto i 768px il sito usa il layout mobile
+$breakpoint-mobile: 767px;
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-mobile + 1) {
+    @content;
+  }
+}
