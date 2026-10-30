@@ -15,6 +15,7 @@
 }
 
 .cv-section {
+  --bs-gutter-y: 0; // senza, la riga sale di 40px e copre il margine della sezione sopra
   padding: 40px 0;
   border-top: 1px solid $color-border;
 }
@@ -26,6 +27,11 @@
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+
+  // sotto i 992px il titolo va sopra il contenuto
+  @media (max-width: 991.98px) {
+    margin-bottom: 40px;
+  }
 }
 
 .cv-list {
